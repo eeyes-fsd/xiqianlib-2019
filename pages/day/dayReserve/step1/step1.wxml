@@ -1,0 +1,19 @@
+<!--申请第一步-->
+<view class="top">
+  下面是您选择的时间：
+</view>
+<view>
+  <view class="time">{{month}}月{{day}}日</view>
+  <view class="time" wx:for="{{time}}" wx:for-item="item">{{item}}</view>
+</view>
+<view class="takingPhoto">
+  请拍照上传单位介绍信及身份证（两者放在一起拍照上传即可）
+  <view class="photo-tip">
+   校内人员仅需上传校园卡
+   介绍信请保留，参观时需要出示。
+  </view>
+</view>
+<image class="IDcard" wx:if="{{hasImage}}" src="{{src}}"></image>
+<view>
+  <button class="upload" bindtap="takephoto">{{tipinfo}}</button>
+</view>

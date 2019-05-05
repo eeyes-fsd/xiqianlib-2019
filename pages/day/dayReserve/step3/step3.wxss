@@ -1,0 +1,30 @@
+/* pages/day/dayReserve/step3/step3.wxss */
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+.success{
+  margin-top: 60rpx;
+  text-align: center;
+  padding: 8rpx 120rpx;
+}
+.yesButton{
+  background:#0DBF2A;
+  color:#fff;
+  margin-top: 40rpx
+}
+.small{
+  font-size: 36rpx
+}

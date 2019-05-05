@@ -1,0 +1,51 @@
+<!--某日详细信息页面-->
+<loading hidden="{{loadingHidden}}">加载中……</loading>
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="modal-dialog" wx:if="{{showModal}}">
+    <view class="modal-title">提示</view>
+    <view class="modal-content">确认删除此次预约？</view>
+    <view class="modal-footer">
+      <view class="btn-cancel" bindtap="noCancel" data-status="cancel">取消</view>
+      <view class="btn-confirm" bindtap="confirmCancel" data-status="confirm">确认</view>
+    </view>
+  </view>
+<view class="top">
+  <image class="change" src="../../static/change.png" mode="aspectFill" bindtap="change"></image>
+  <view space="true"> {{month}}月{{day}}日 </view>
+</view>
+<view class="time-table">
+  <view>
+  今日预约情况
+      <view class='title-info'>如选定完毕，请滑至底部进行确认！</view>
+  </view>
+  <view>
+    <button bindtap="change">选定预约时间</button>
+  </view>
+  <view class="time-item" wx:for="{{time_table}}" wx:for-item="item">
+    <view class="item-time">{{item.time}}</view>
+    <view></view>
+    <view></view>
+    <view class="status" wx:if="{{ item.status == 1}}">
+      <view class="item-status-red">已预约</view>
+      <icon type="warn" color="gray" class="check-one" wx:if="{{edit}}"></icon>
+    </view>
+    <view class="status" wx:elif="{{item.review == -1 && item.status == 2}}">
+      <view class="item-status-gray">审核中</view>
+      <icon data-id="{{index}}" type="cancel" class="check-one" wx:if="{{edit}}" bindtap="cancelThis"></icon>
+    </view>
+    <view class="status" wx:elif="{{item.status == 0 }}">
+      <view class="item-status-green">可预约</view>
+      <image src="{{item.src}}" class="choose_img" data-index="{{index}}" data-time="{{item.time}}"  data-id="{{index}}" class="check-one" wx:if="{{edit}}" bindtap="addtime"></image>
+    </view>
+    <view class="status" wx:elif="{{item.status == 2 && item.review == 1}}">
+      <view class="item-status-blue">已预约</view>
+      <icon data-id="{{item.id}}" type="cancel" class="check-one" wx:if="{{edit}}"></icon>
+    </view>
+    <view class="status" wx:elif="{{item.review == 0}}">
+      <view class="item-status-orange">已拒绝</view>
+    </view>
+  </view>
+</view>
+<button class="setup" disabled="{{hasChosen}}" wx:if="{{edit}}" bindtap="startChange">
+  开始预约
+</button>

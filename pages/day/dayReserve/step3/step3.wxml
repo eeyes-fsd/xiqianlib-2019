@@ -1,0 +1,15 @@
+<!--pages/day/dayReserve/step3/step3.wxml-->
+<view class="userinfo">
+  <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+  <block wx:else>
+    <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </block>
+  <text class="success large">信息已提交</text>
+  <text class="success">我们将尽快审核您的信息，请及时登录小程序查收</text>
+  <text class="success small">参观之前，请阅读参观通知</text>
+</view>
+<view>
+  <button class="yesButton" bindtap="tips">阅读参观通知</button>
+  <button class="yesButton" bindtap="cancel">返回首页</button>
+</view>

@@ -1,0 +1,18 @@
+/* pages/infos/guidance/guidance.wxss */
+.title{
+  font-size: 48rpx;
+}
+view{
+  margin: 12rpx;
+  padding-left: 12rpx;
+  padding-right: 12rpx;
+}
+.important{
+  font-weight: bold;
+}
+.tip-top{
+  font-size:50rpx;
+margin-bottom:30px;
+text-align:center;
+
+}
