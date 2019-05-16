@@ -177,6 +177,7 @@ Page({
 
     function uppic() {
       var q = new Promise(function(resolve, reject) {
+        console.log(path)
         wx.uploadFile({
           url: app.globalData.request_url + 'credentials',
           filePath: path,
@@ -185,6 +186,8 @@ Page({
             Authorization: "Bearer " + token
           },
           success: function(res) {
+            console.log("上传成功")
+            console.log(res)
             resolve(res)
           },
           fail: function(res) {

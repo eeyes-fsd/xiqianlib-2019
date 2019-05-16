@@ -190,7 +190,7 @@ Page({
             let atoken = res.data;
             wx.request({
               url: app.globalData.request_url + 'reservations/' + id,
-              method: 'post',
+              method: 'delete',
               header: {
                 Authorization: "Bearer " + atoken
               },

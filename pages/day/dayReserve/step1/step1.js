@@ -57,6 +57,7 @@ Page({
             src: res.tempFilePaths[0]
           })
           getApp().globalData.pic = res.tempFilePaths[0];
+          console.log(getApp().globalData.pic)
           wx.previewImage({
             current: res.tempFilePaths[0], // 当前显示图片的http链接
             urls: res.tempFilePaths // 需要预览的图片http链接列表
